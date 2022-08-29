@@ -333,12 +333,13 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
       if(options().hasValueForOption("-bootclasspath"))
         bootclasspaths = options().getValueForOption("-bootclasspath").split(File.pathSeparator);
       else
-        bootclasspaths = System.getProperty("sun.boot.class.path").split(File.pathSeparator);
+    	  /* sun.boot.class.path was removed after JDK 1.8 java.class.path is to be used */
+    	  bootclasspaths = System.getProperty("java.class.path").split(File.pathSeparator);
       for(int i = 0; i < bootclasspaths.length; i++) {
         classPaths.add(bootclasspaths[i]);
         //System.err.println("Adding classpath " + bootclasspaths[i]);
       }
-      
+      /** Classes to be loaded using extension classloader instead of system classloader. This was deprecated after jdk 8
       String[] extdirs;
       if(options().hasValueForOption("-extdirs"))
         extdirs = options().getValueForOption("-extdirs").split(File.pathSeparator);
@@ -347,7 +348,7 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
       for(int i = 0; i < extdirs.length; i++) {
         classPaths.add(extdirs[i]);
         //System.err.println("Adding classpath " + extdirs[i]);
-      }
+      }*/
 
       String[] userClasses = null;
       if(options().hasValueForOption("-classpath"))

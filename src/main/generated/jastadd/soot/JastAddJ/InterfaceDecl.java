@@ -329,7 +329,10 @@ public class InterfaceDecl extends ReferenceType implements Cloneable {
     SourceFileTag st = new soot.tagkit.SourceFileTag(sourceNameWithoutPath());
     st.setAbsolutePath(compilationUnit().pathName());
     sc.addTag(st);
-    sc.setSuperclass(typeObject().getSootClassDecl());
+    /* Added null check. */
+    if(null!=typeObject()) {
+    	sc.setSuperclass(typeObject().getSootClassDecl());
+    }
     for(Iterator iter = superinterfacesIterator(); iter.hasNext(); ) {
       TypeDecl typeDecl = (TypeDecl)iter.next();
       if(typeDecl != typeObject() && !sc.implementsInterface(typeDecl.getSootClassDecl().getName()))
@@ -773,10 +776,13 @@ public class InterfaceDecl extends ReferenceType implements Cloneable {
             putSimpleSetElement(map, m.signature(), m);
       }
     }
-    for(Iterator iter = typeObject().methodsIterator(); iter.hasNext(); ) {
-      MethodDecl m = (MethodDecl)iter.next();
-      if(m.isPublic() && !map.containsKey(m.signature()))
-        putSimpleSetElement(map, m.signature(), m);
+    /* Added null check. */
+    if(null!=typeObject()) {
+    	for(Iterator iter = typeObject().methodsIterator(); iter.hasNext(); ) {
+    		MethodDecl m = (MethodDecl)iter.next();
+    		if(m.isPublic() && !map.containsKey(m.signature()))
+    			putSimpleSetElement(map, m.signature(), m);
+    	}
     }
     return map;
   }
@@ -812,7 +818,8 @@ public class InterfaceDecl extends ReferenceType implements Cloneable {
         set = set.add(m);
       }
     }
-    if(!superinterfacesIterator().hasNext()) {
+    /* Added null check. */
+    if(!superinterfacesIterator().hasNext() && null!=typeObject()) {
       for(Iterator iter = typeObject().methodsSignature(signature).iterator(); iter.hasNext(); ) {
         MethodDecl m = (MethodDecl)iter.next();
         if(m.isPublic())
@@ -1225,11 +1232,14 @@ public class InterfaceDecl extends ReferenceType implements Cloneable {
    */
   private HashSet implementedInterfaces_compute() {
     HashSet set= new HashSet();
-    set.addAll(typeObject().implementedInterfaces());
-    for(Iterator iter = superinterfacesIterator(); iter.hasNext(); ) {
-      InterfaceDecl decl = (InterfaceDecl)iter.next();
-      set.add(decl);
-      set.addAll(decl.implementedInterfaces());
+    /* Added null check. */
+    if(null!=typeObject()) {
+    	set.addAll(typeObject().implementedInterfaces());
+    	for(Iterator iter = superinterfacesIterator(); iter.hasNext(); ) {
+    		InterfaceDecl decl = (InterfaceDecl)iter.next();
+    		set.add(decl);
+    		set.addAll(decl.implementedInterfaces());
+    	}
     }
     return set;
   }
