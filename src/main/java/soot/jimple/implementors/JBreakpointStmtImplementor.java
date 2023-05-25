@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JBreakpointStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JBreakpointStmt;
  */
 public abstract class JBreakpointStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JBreakpointStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JBreakpointStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JBreakpointStmt stmt);
 
 }

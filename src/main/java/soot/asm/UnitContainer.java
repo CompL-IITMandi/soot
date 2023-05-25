@@ -24,8 +24,9 @@ package soot.asm;
 
 import java.util.List;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.Unit;
 import soot.UnitBox;
 import soot.UnitPrinter;
@@ -158,7 +159,13 @@ class UnitContainer implements Unit {
   }
   
   /** Not implemented for IR's other than Jimple */
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  throw new UnsupportedOperationException();
+  }
+  
+  /** Not implemented for IR's other than Jimple */
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  throw new UnsupportedOperationException();
   }

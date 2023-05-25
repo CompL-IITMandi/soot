@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JIdentityStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JIdentityStmt;
  */
 public abstract class JIdentityStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JIdentityStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JIdentityStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JIdentityStmt stmt);
 
 }

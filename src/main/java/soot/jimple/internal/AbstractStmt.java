@@ -25,8 +25,9 @@ package soot.jimple.internal;
 import java.util.List;
 
 import soot.AbstractUnit;
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.Unit;
 import soot.ValueBox;
 import soot.baf.Baf;
@@ -94,9 +95,17 @@ public abstract class AbstractStmt extends AbstractUnit implements Stmt, Convert
   }
   
   /** Not implemented for IR's other than Jimple */
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  System.out.println("Incorrect Invocation");
 	  return null;
   }
+  
+  /** Not implemented for IR's other than Jimple */
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  System.out.println("Incorrect Invocation");
+	  return null;
+  }
+  
 }

@@ -28,8 +28,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import soot.AbstractUnit;
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.UnitPrinter;
 import soot.dava.toolkits.base.AST.ASTAnalysis;
 import soot.dava.toolkits.base.AST.analysis.Analysis;
@@ -115,7 +116,13 @@ public abstract class ASTNode extends AbstractUnit {
   }
 
   /** Not implemented for IR's other than Jimple */
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
+  }
+  
+  /** Not implemented for IR's other than Jimple */
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  return null;
   }

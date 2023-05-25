@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JNopStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JNopStmt;
  */
 public abstract class JNopStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JNopStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JNopStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JNopStmt stmt);
 
 }

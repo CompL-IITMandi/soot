@@ -1,7 +1,8 @@
 package soot.jimple.internal;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 
 /*-
  * #%L
@@ -68,7 +69,19 @@ public class JBreakpointStmt extends AbstractStmt implements BreakpointStmt {
   }
   
   @Override
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
-	  return operator.getBreakPointOperator().performAnalysis(inset, this);
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
+	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+		  return operator.getBreakPointOperator().performAnalysis(inset, this);
+	  }
+	  return null;
   }
+  
+  @Override
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+		  return operator.getBreakPointOperator().performAnalysis(flowset, this);
+	  }
+	  return null;
+  }
+  
 }

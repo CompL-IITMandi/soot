@@ -27,8 +27,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.Unit;
 import soot.UnitBox;
 import soot.UnitPrinter;
@@ -169,8 +170,19 @@ public class JLookupSwitchStmt extends AbstractSwitchStmt implements LookupSwitc
   }
   
   @Override
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
-	  return operator.getLookupSwitchStmtOperator().performAnalysis(inset, this);
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
+	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+		  return operator.getLookupSwitchStmtOperator().performAnalysis(inset, this);
+	  }
+	  return null;
+  }
+  
+  @Override
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+		  return operator.getLookupSwitchStmtOperator().performAnalysis(flowset, this);
+	  }
+	  return null;
   }
   
 }

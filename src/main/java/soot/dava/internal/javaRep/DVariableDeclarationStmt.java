@@ -27,9 +27,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import soot.AbstractUnit;
-import soot.Inset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
 import soot.Local;
-import soot.Outset;
+import soot.BiFuncOutset;
 import soot.Type;
 import soot.UnitPrinter;
 import soot.Value;
@@ -225,9 +226,16 @@ public class DVariableDeclarationStmt extends AbstractUnit implements Stmt {
   }
 
   /** Not implemented for IR's other than Jimple */
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  return null;
   }
+  
+  /** Not implemented for IR's other than Jimple */
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
+  }
+  
   
 }

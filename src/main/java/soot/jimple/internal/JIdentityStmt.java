@@ -24,9 +24,10 @@ package soot.jimple.internal;
 
 import java.util.List;
 
-import soot.Inset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
 import soot.Local;
-import soot.Outset;
+import soot.BiFuncOutset;
 import soot.RefType;
 import soot.Unit;
 import soot.UnitPrinter;
@@ -109,7 +110,18 @@ public class JIdentityStmt extends AbstractDefinitionStmt implements IdentityStm
   }
   
   @Override
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
-	  return operator.getIdentityOperator().performAnalysis(inset, this);
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
+	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+		  return operator.getIdentityOperator().performAnalysis(inset, this);
+	  }
+	  return null;
+  }
+  
+  @Override
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+		  return operator.getIdentityOperator().performAnalysis(flowset, this);
+	  }
+	  return null;
   }
 }

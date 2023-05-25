@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JRetStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JRetStmt;
  */
 public abstract class JRetStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JRetStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JRetStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JRetStmt stmt);
 
 }

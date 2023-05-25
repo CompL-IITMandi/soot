@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JAssignStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JAssignStmt;
  */
 public abstract class JAssignStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JAssignStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JAssignStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JAssignStmt stmt);
 
 }

@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JEnterMonitorStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JEnterMonitorStmt;
  */
 public abstract class JEnterMonitorStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JEnterMonitorStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JEnterMonitorStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JEnterMonitorStmt stmt);
 
 }

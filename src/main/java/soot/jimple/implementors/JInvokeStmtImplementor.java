@@ -3,8 +3,9 @@
  */
 package soot.jimple.implementors;
 
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.jimple.internal.JInvokeStmt;
 
 /**
@@ -13,6 +14,8 @@ import soot.jimple.internal.JInvokeStmt;
  */
 public abstract class JInvokeStmtImplementor {
 
-	public abstract Outset<?> performAnalysis(Inset<?> inset,JInvokeStmt stmt);
+	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JInvokeStmt stmt);
+	
+	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JInvokeStmt stmt);
 
 }

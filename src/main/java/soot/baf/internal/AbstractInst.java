@@ -23,8 +23,9 @@ package soot.baf.internal;
  */
 
 import soot.AbstractUnit;
-import soot.Inset;
-import soot.Outset;
+import soot.BiFuncFlowSet;
+import soot.BiFuncInset;
+import soot.BiFuncOutset;
 import soot.UnitPrinter;
 import soot.baf.Inst;
 import soot.jimple.Operator;
@@ -117,7 +118,13 @@ public abstract class AbstractInst extends AbstractUnit implements Inst {
   }
   
   /** Not implemented for IR's other than Jimple */
-  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+  public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
+  }
+  
+  /** Not implemented for IR's other than Jimple */
+  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  return null;
   }
