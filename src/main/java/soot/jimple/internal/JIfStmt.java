@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import soot.Inset;
+import soot.Outset;
 import soot.Unit;
 import soot.UnitBox;
 import soot.UnitPrinter;
@@ -46,6 +48,7 @@ import soot.jimple.LeExpr;
 import soot.jimple.LtExpr;
 import soot.jimple.NeExpr;
 import soot.jimple.NullConstant;
+import soot.jimple.Operator;
 import soot.jimple.Stmt;
 import soot.jimple.StmtSwitch;
 import soot.util.Switch;
@@ -304,5 +307,10 @@ public class JIfStmt extends AbstractStmt implements IfStmt {
   @Override
   public boolean branches() {
     return true;
+  }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getIfStmtOperator().performAnalysis(inset, this);
   }
 }

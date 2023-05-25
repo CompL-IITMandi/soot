@@ -27,6 +27,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
+import soot.Inset;
+import soot.Outset;
 import soot.Unit;
 import soot.UnitBox;
 import soot.UnitPrinter;
@@ -39,6 +41,7 @@ import soot.jimple.IntConstant;
 import soot.jimple.Jimple;
 import soot.jimple.JimpleToBafContext;
 import soot.jimple.LookupSwitchStmt;
+import soot.jimple.Operator;
 import soot.jimple.StmtSwitch;
 import soot.util.Switch;
 
@@ -164,4 +167,10 @@ public class JLookupSwitchStmt extends AbstractSwitchStmt implements LookupSwitc
     u.addAllTagsOf(this);
     out.add(u);
   }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getLookupSwitchStmtOperator().performAnalysis(inset, this);
+  }
+  
 }

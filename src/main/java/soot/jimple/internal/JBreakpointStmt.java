@@ -1,5 +1,8 @@
 package soot.jimple.internal;
 
+import soot.Inset;
+import soot.Outset;
+
 /*-
  * #%L
  * Soot - a J*va Optimization Framework
@@ -25,6 +28,7 @@ package soot.jimple.internal;
 import soot.UnitPrinter;
 import soot.jimple.BreakpointStmt;
 import soot.jimple.Jimple;
+import soot.jimple.Operator;
 import soot.jimple.StmtSwitch;
 import soot.util.Switch;
 
@@ -61,5 +65,10 @@ public class JBreakpointStmt extends AbstractStmt implements BreakpointStmt {
   @Override
   public boolean branches() {
     return false;
+  }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getBreakPointOperator().performAnalysis(inset, this);
   }
 }

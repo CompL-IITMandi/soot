@@ -96,6 +96,7 @@ public abstract class AbstractStmt extends AbstractUnit implements Stmt, Convert
   /** Not implemented for IR's other than Jimple */
   public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
+	  System.out.println("Incorrect Invocation");
 	  return null;
   }
 }

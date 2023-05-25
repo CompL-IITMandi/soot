@@ -24,7 +24,9 @@ package soot.jimple.internal;
 
 import java.util.List;
 
+import soot.Inset;
 import soot.Local;
+import soot.Outset;
 import soot.RefType;
 import soot.Unit;
 import soot.UnitPrinter;
@@ -35,6 +37,7 @@ import soot.jimple.CaughtExceptionRef;
 import soot.jimple.IdentityStmt;
 import soot.jimple.Jimple;
 import soot.jimple.JimpleToBafContext;
+import soot.jimple.Operator;
 import soot.jimple.ParameterRef;
 import soot.jimple.StmtSwitch;
 import soot.jimple.ThisRef;
@@ -103,5 +106,10 @@ public class JIdentityStmt extends AbstractDefinitionStmt implements IdentityStm
     Unit u = Baf.v().newIdentityInst(context.getBafLocalOfJimpleLocal((Local) getLeftOp()), newRhs);
     u.addAllTagsOf(this);
     out.add(u);
+  }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getIdentityOperator().performAnalysis(inset, this);
   }
 }

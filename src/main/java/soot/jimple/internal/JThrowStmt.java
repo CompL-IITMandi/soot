@@ -24,6 +24,8 @@ package soot.jimple.internal;
 
 import java.util.List;
 
+import soot.Inset;
+import soot.Outset;
 import soot.Unit;
 import soot.UnitPrinter;
 import soot.Value;
@@ -32,6 +34,7 @@ import soot.baf.Baf;
 import soot.jimple.ConvertToBaf;
 import soot.jimple.Jimple;
 import soot.jimple.JimpleToBafContext;
+import soot.jimple.Operator;
 import soot.jimple.StmtSwitch;
 import soot.jimple.ThrowStmt;
 import soot.util.Switch;
@@ -84,5 +87,10 @@ public class JThrowStmt extends AbstractOpStmt implements ThrowStmt {
   @Override
   public boolean branches() {
     return false;
+  }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getThrowStmtOperator().performAnalysis(inset, this);
   }
 }

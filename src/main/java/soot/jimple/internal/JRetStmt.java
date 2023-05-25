@@ -25,10 +25,13 @@ package soot.jimple.internal;
 import java.util.ArrayList;
 import java.util.List;
 
+import soot.Inset;
+import soot.Outset;
 import soot.UnitPrinter;
 import soot.Value;
 import soot.ValueBox;
 import soot.jimple.Jimple;
+import soot.jimple.Operator;
 import soot.jimple.RetStmt;
 import soot.jimple.StmtSwitch;
 import soot.util.Switch;
@@ -97,5 +100,10 @@ public class JRetStmt extends AbstractStmt implements RetStmt {
   @Override
   public boolean branches() {
     return false;
+  }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getRetStmtOperator().performAnalysis(inset, this);
   }
 }

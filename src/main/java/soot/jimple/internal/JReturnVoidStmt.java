@@ -24,11 +24,14 @@ package soot.jimple.internal;
 
 import java.util.List;
 
+import soot.Inset;
+import soot.Outset;
 import soot.Unit;
 import soot.UnitPrinter;
 import soot.baf.Baf;
 import soot.jimple.Jimple;
 import soot.jimple.JimpleToBafContext;
+import soot.jimple.Operator;
 import soot.jimple.ReturnVoidStmt;
 import soot.jimple.StmtSwitch;
 import soot.util.Switch;
@@ -73,5 +76,10 @@ public class JReturnVoidStmt extends AbstractStmt implements ReturnVoidStmt {
   @Override
   public boolean branches() {
     return false;
+  }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getReturnVoidStmtOperator().performAnalysis(inset, this);
   }
 }
