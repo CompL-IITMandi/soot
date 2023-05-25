@@ -27,7 +27,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import soot.AbstractUnit;
+import soot.Inset;
 import soot.Local;
+import soot.Outset;
 import soot.Type;
 import soot.UnitPrinter;
 import soot.Value;
@@ -39,6 +41,7 @@ import soot.grimp.Grimp;
 import soot.jimple.ArrayRef;
 import soot.jimple.FieldRef;
 import soot.jimple.InvokeExpr;
+import soot.jimple.Operator;
 import soot.jimple.Stmt;
 import soot.util.IterableSet;
 
@@ -221,4 +224,10 @@ public class DVariableDeclarationStmt extends AbstractUnit implements Stmt {
     throw new RuntimeException("getFieldRefBox() called with no FieldRef present!");
   }
 
+  /** Not implemented for IR's other than Jimple */
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
+  }
+  
 }

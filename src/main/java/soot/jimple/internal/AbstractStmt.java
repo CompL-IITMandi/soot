@@ -25,6 +25,8 @@ package soot.jimple.internal;
 import java.util.List;
 
 import soot.AbstractUnit;
+import soot.Inset;
+import soot.Outset;
 import soot.Unit;
 import soot.ValueBox;
 import soot.baf.Baf;
@@ -33,6 +35,7 @@ import soot.jimple.ConvertToBaf;
 import soot.jimple.FieldRef;
 import soot.jimple.InvokeExpr;
 import soot.jimple.JimpleToBafContext;
+import soot.jimple.Operator;
 import soot.jimple.Stmt;
 
 @SuppressWarnings("serial")
@@ -88,5 +91,11 @@ public abstract class AbstractStmt extends AbstractUnit implements Stmt, Convert
   @Override
   public ValueBox getFieldRefBox() {
     throw new RuntimeException("getFieldRefBox() called with no FieldRef present!");
+  }
+  
+  /** Not implemented for IR's other than Jimple */
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
   }
 }

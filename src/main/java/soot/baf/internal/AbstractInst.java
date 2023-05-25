@@ -23,8 +23,11 @@ package soot.baf.internal;
  */
 
 import soot.AbstractUnit;
+import soot.Inset;
+import soot.Outset;
 import soot.UnitPrinter;
 import soot.baf.Inst;
+import soot.jimple.Operator;
 
 public abstract class AbstractInst extends AbstractUnit implements Inst {
 
@@ -111,5 +114,11 @@ public abstract class AbstractInst extends AbstractUnit implements Inst {
   @Override
   public boolean containsNewExpr() {
     return false;
+  }
+  
+  /** Not implemented for IR's other than Jimple */
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
   }
 }

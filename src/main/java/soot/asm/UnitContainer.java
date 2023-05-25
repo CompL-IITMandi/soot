@@ -24,10 +24,13 @@ package soot.asm;
 
 import java.util.List;
 
+import soot.Inset;
+import soot.Outset;
 import soot.Unit;
 import soot.UnitBox;
 import soot.UnitPrinter;
 import soot.ValueBox;
+import soot.jimple.Operator;
 import soot.tagkit.Host;
 import soot.tagkit.Tag;
 import soot.util.Switch;
@@ -153,4 +156,11 @@ class UnitContainer implements Unit {
   public int getJavaSourceStartColumnNumber() {
     throw new UnsupportedOperationException();
   }
+  
+  /** Not implemented for IR's other than Jimple */
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  throw new UnsupportedOperationException();
+  }
+  
 }

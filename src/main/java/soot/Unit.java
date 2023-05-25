@@ -25,6 +25,7 @@ package soot;
 import java.io.Serializable;
 import java.util.List;
 
+import soot.jimple.Operator;
 import soot.tagkit.Host;
 import soot.util.Chain;
 import soot.util.Switchable;
@@ -86,4 +87,7 @@ public interface Unit extends Switchable, Host, Serializable, Context {
    * @see soot.shimple.Shimple#redirectPointers(Unit, Unit)
    **/
   public void redirectJumpsToThisTo(Unit newLocation);
+  
+  /** This is an overrideable method to be used by all stmt of Jimple currently to perform the respective analysis. */
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator);
 }

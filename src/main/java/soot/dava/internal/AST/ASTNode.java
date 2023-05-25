@@ -28,9 +28,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import soot.AbstractUnit;
+import soot.Inset;
+import soot.Outset;
 import soot.UnitPrinter;
 import soot.dava.toolkits.base.AST.ASTAnalysis;
 import soot.dava.toolkits.base.AST.analysis.Analysis;
+import soot.jimple.Operator;
 
 public abstract class ASTNode extends AbstractUnit {
   public static final String TAB = "    ", NEWLINE = "\n";
@@ -111,4 +114,10 @@ public abstract class ASTNode extends AbstractUnit {
     throw new RuntimeException("Analysis invoked apply method on ASTNode");
   }
 
+  /** Not implemented for IR's other than Jimple */
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  // TO-DO : Implementations for other IR's also.
+	  return null;
+  }
+  
 }

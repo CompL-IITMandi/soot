@@ -25,8 +25,10 @@ package soot.jimple.internal;
 import java.util.List;
 
 import soot.Immediate;
+import soot.Inset;
 import soot.IntType;
 import soot.Local;
+import soot.Outset;
 import soot.Unit;
 import soot.UnitBox;
 import soot.UnitBoxOwner;
@@ -46,9 +48,11 @@ import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
 import soot.jimple.Jimple;
 import soot.jimple.JimpleToBafContext;
+import soot.jimple.Operator;
 import soot.jimple.StaticFieldRef;
 import soot.jimple.StmtSwitch;
 import soot.jimple.SubExpr;
+import soot.jimple.implementors.JAssignStmtImplementor;
 import soot.util.Switch;
 
 public class JAssignStmt extends AbstractDefinitionStmt implements AssignStmt {
@@ -305,4 +309,10 @@ public class JAssignStmt extends AbstractDefinitionStmt implements AssignStmt {
       }
     });
   }
+  
+  @Override
+  public Outset<?> performAnalysis(Inset<?> inset,Operator operator) {
+	  return operator.getAssignmentOperator().performAnalysis(inset, this);
+  }
+  
 }
