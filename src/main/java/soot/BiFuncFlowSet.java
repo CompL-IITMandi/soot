@@ -20,6 +20,6 @@ public interface BiFuncFlowSet<T,K> {
 	
 	public PointsToAnalysis getP2Set();
 	
-	public void getP2Set(PointsToAnalysis p2Set);
+	public void setP2Set(PointsToAnalysis p2Set);
 	
 }
