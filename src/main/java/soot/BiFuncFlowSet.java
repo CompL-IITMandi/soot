@@ -16,4 +16,10 @@ public interface BiFuncFlowSet<T,K> {
 	
 	public void updateFlowSet(K element);
 	
+	public void addToFlowSet(K element);
+	
+	public PointsToAnalysis getP2Set();
+	
+	public void getP2Set(PointsToAnalysis p2Set);
+	
 }
