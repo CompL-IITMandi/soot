@@ -34,7 +34,7 @@ public final class Operator {
 	private JLookupSwitchStmtImplementor lookupSwitchStmtOperator;
 	private JExitMonitorStmtImplementor exitMonitorStmtOperator;
 	private JEnterMonitorStmtImplementor enterMonitorStmtOperator;
-	private JNopStmtImplementor JNopStmtOperator;
+	private JNopStmtImplementor nopStmtOperator;
 	private JRetStmtImplementor retStmtOperator;
 	private JReturnStmtImplementor returnStmtOperator;
 	private JReturnVoidStmtImplementor returnVoidStmtOperator;
@@ -61,7 +61,7 @@ public final class Operator {
 			JIdentityStmtImplementor identityOperator, JIfStmtImplementor ifStmtOperator,
 			JInvokeStmtImplementor invokeOperator, JGotoStmtImplementor gotoStmt,
 			JLookupSwitchStmtImplementor lookupSwitchStmtOperator, JExitMonitorStmtImplementor exitMonitorStmtOperator,
-			JEnterMonitorStmtImplementor enterMonitorStmtOperator, JNopStmtImplementor jNopStmtOperator,
+			JEnterMonitorStmtImplementor enterMonitorStmtOperator, JNopStmtImplementor nopStmtOperator,
 			JRetStmtImplementor retStmtOperator, JReturnStmtImplementor returnStmtOperator,
 			JReturnVoidStmtImplementor returnVoidStmtOperator, JTableSwitchStmtImplementor tableSwitchStmtOperator,
 			JThrowStmtImplementor throwStmtOperator) {
@@ -74,13 +74,21 @@ public final class Operator {
 		this.lookupSwitchStmtOperator = lookupSwitchStmtOperator;
 		this.exitMonitorStmtOperator = exitMonitorStmtOperator;
 		this.enterMonitorStmtOperator = enterMonitorStmtOperator;
-		JNopStmtOperator = jNopStmtOperator;
+		this.nopStmtOperator = nopStmtOperator;
 		this.retStmtOperator = retStmtOperator;
 		this.returnStmtOperator = returnStmtOperator;
 		this.returnVoidStmtOperator = returnVoidStmtOperator;
 		this.tableSwitchStmtOperator = tableSwitchStmtOperator;
 		this.throwStmtOperator = throwStmtOperator;
 	}
+	
+	/**
+	 * 
+	 */
+	public Operator() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @return the assignmentOperator
 	 */
@@ -192,14 +200,14 @@ public final class Operator {
 	/**
 	 * @return the jNopStmtOperator
 	 */
-	public JNopStmtImplementor getJNopStmtOperator() {
-		return JNopStmtOperator;
+	public JNopStmtImplementor getNopStmtOperator() {
+		return nopStmtOperator;
 	}
 	/**
 	 * @param jNopStmtOperator the jNopStmtOperator to set
 	 */
-	public void setJNopStmtOperator(JNopStmtImplementor jNopStmtOperator) {
-		JNopStmtOperator = jNopStmtOperator;
+	public void setNopStmtOperator(JNopStmtImplementor jNopStmtOperator) {
+		nopStmtOperator = jNopStmtOperator;
 	}
 	/**
 	 * @return the retStmtOperator
