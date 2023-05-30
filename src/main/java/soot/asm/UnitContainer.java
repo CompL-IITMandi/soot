@@ -165,7 +165,7 @@ class UnitContainer implements Unit {
   }
   
   /** Not implemented for IR's other than Jimple */
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
+  public BiFuncFlowSet<?, ?, ?> performAnalysis(BiFuncFlowSet<?, ?, ?> flowSet,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  throw new UnsupportedOperationException();
   }

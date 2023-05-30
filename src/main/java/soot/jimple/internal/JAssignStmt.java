@@ -320,7 +320,7 @@ public class JAssignStmt extends AbstractDefinitionStmt implements AssignStmt {
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getAssignmentOperator()) {
 		  return operator.getAssignmentOperator().performAnalysis(flowset, this);
 	  }

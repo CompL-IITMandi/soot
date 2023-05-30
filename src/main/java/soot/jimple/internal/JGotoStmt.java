@@ -123,7 +123,7 @@ public class JGotoStmt extends AbstractStmt implements GotoStmt {
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
 		  return operator.getGotoStmt().performAnalysis(flowset, this);
 	  }

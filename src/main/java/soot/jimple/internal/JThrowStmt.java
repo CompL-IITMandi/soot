@@ -99,7 +99,7 @@ public class JThrowStmt extends AbstractOpStmt implements ThrowStmt {
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
 		  return operator.getThrowStmtOperator().performAnalysis(flowset, this);
 	  }

@@ -124,7 +124,7 @@ public abstract class AbstractInst extends AbstractUnit implements Inst {
   }
   
   /** Not implemented for IR's other than Jimple */
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
+  public BiFuncFlowSet<?, ?, ?> performAnalysis(BiFuncFlowSet<?, ?, ?> flowSet,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  return null;
   }

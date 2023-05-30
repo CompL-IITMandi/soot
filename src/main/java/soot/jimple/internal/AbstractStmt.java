@@ -102,7 +102,7 @@ public abstract class AbstractStmt extends AbstractUnit implements Stmt, Convert
   }
   
   /** Not implemented for IR's other than Jimple */
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowSet,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowSet,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  System.out.println("Incorrect Invocation");
 	  return null;

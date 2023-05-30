@@ -232,7 +232,7 @@ public class DVariableDeclarationStmt extends AbstractUnit implements Stmt {
   }
   
   /** Not implemented for IR's other than Jimple */
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> inset,Operator operator) {
 	  // TO-DO : Implementations for other IR's also.
 	  return null;
   }

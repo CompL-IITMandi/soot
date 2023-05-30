@@ -187,7 +187,7 @@ public class JTableSwitchStmt extends AbstractSwitchStmt implements TableSwitchS
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
 		  return operator.getTableSwitchStmtOperator().performAnalysis(flowset, this);
 	  }

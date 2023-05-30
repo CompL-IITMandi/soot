@@ -92,5 +92,5 @@ public interface Unit extends Switchable, Host, Serializable, Context {
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator);
   
   /** This is an overrideable method to be used by all stmt of Jimple currently to perform the respective analysis. */
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,Operator operator);
+  public BiFuncFlowSet<?, ?, ?> performAnalysis(BiFuncFlowSet<?, ?, ?> inset,Operator operator);
 }

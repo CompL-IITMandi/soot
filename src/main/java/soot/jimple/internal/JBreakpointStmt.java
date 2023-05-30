@@ -77,7 +77,7 @@ public class JBreakpointStmt extends AbstractStmt implements BreakpointStmt {
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
 		  return operator.getBreakPointOperator().performAnalysis(flowset, this);
 	  }

@@ -178,7 +178,7 @@ public class JLookupSwitchStmt extends AbstractSwitchStmt implements LookupSwitc
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
 		  return operator.getLookupSwitchStmtOperator().performAnalysis(flowset, this);
 	  }

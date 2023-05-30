@@ -88,7 +88,7 @@ public class JReturnVoidStmt extends AbstractStmt implements ReturnVoidStmt {
   }
   
   @Override
-  public BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> flowset,Operator operator) {
+  public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
 	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
 		  return operator.getReturnVoidStmtOperator().performAnalysis(flowset, this);
 	  }

@@ -16,6 +16,8 @@ public abstract class JAssignStmtImplementor {
 
 	public abstract BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,JAssignStmt stmt);
 	
-	public abstract BiFuncFlowSet<?,?> performAnalysis(BiFuncFlowSet<?,?> inset,JAssignStmt stmt);
+	public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> inset,JAssignStmt stmt){
+		return inset.doAnalysis(stmt);
+	}
 
 }
