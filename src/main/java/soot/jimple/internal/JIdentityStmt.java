@@ -111,7 +111,7 @@ public class JIdentityStmt extends AbstractDefinitionStmt implements IdentityStm
   
   @Override
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getIdentityOperator()) {
 		  return operator.getIdentityOperator().performAnalysis(inset, this);
 	  }
 	  return null;
@@ -119,7 +119,7 @@ public class JIdentityStmt extends AbstractDefinitionStmt implements IdentityStm
   
   @Override
   public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getIdentityOperator()) {
 		  return operator.getIdentityOperator().performAnalysis(flowset, this);
 	  }
 	  return null;

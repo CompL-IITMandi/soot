@@ -81,7 +81,7 @@ public class JNopStmt extends AbstractStmt implements NopStmt {
   
   @Override
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getNopStmtOperator()) {
 		  return operator.getNopStmtOperator().performAnalysis(inset, this);
 	  }
 	  return null;
@@ -89,7 +89,7 @@ public class JNopStmt extends AbstractStmt implements NopStmt {
   
   @Override
   public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getNopStmtOperator()) {
 		  return operator.getNopStmtOperator().performAnalysis(flowset, this);
 	  }
 	  return null;

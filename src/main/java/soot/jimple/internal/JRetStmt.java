@@ -105,7 +105,7 @@ public class JRetStmt extends AbstractStmt implements RetStmt {
   
   @Override
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getRetStmtOperator()) {
 		  return operator.getRetStmtOperator().performAnalysis(inset, this);
 	  }
 	  return null;
@@ -113,7 +113,7 @@ public class JRetStmt extends AbstractStmt implements RetStmt {
   
   @Override
   public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getRetStmtOperator()) {
 		  return operator.getRetStmtOperator().performAnalysis(flowset, this);
 	  }
 	  return null;

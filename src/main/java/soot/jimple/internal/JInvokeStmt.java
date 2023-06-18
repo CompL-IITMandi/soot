@@ -131,7 +131,7 @@ public class JInvokeStmt extends AbstractStmt implements InvokeStmt {
   
   @Override
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getInvokeOperator()) {
 		  return operator.getInvokeOperator().performAnalysis(inset, this);
 	  }
 	  return null;
@@ -139,7 +139,7 @@ public class JInvokeStmt extends AbstractStmt implements InvokeStmt {
   
   @Override
   public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getInvokeOperator()) {
 		  return operator.getInvokeOperator().performAnalysis(flowset, this);
 	  }
 	  return null;

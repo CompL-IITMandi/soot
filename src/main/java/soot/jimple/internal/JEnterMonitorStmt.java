@@ -91,7 +91,7 @@ public class JEnterMonitorStmt extends AbstractOpStmt implements EnterMonitorStm
   
   @Override
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getEnterMonitorStmtOperator()) {
 		  return operator.getEnterMonitorStmtOperator().performAnalysis(inset, this);
 	  }
 	  return null;
@@ -99,7 +99,7 @@ public class JEnterMonitorStmt extends AbstractOpStmt implements EnterMonitorStm
   
   @Override
   public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getEnterMonitorStmtOperator()) {
 		  return operator.getEnterMonitorStmtOperator().performAnalysis(flowset, this);
 	  }
 	  return null;

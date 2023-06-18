@@ -152,13 +152,13 @@ public final class Operator {
 	/**
 	 * @return the gotoStmt
 	 */
-	public JGotoStmtImplementor getGotoStmt() {
+	public JGotoStmtImplementor getGotoStmtOperator() {
 		return gotoStmt;
 	}
 	/**
 	 * @param gotoStmt the gotoStmt to set
 	 */
-	public void setGotoStmt(JGotoStmtImplementor gotoStmt) {
+	public void setGotoStmtOperator(JGotoStmtImplementor gotoStmt) {
 		this.gotoStmt = gotoStmt;
 	}
 	/**

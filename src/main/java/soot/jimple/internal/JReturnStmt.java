@@ -92,7 +92,7 @@ public class JReturnStmt extends AbstractOpStmt implements ReturnStmt {
   
   @Override
   public BiFuncOutset<?,?> performAnalysis(BiFuncInset<?,?> inset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getReturnStmtOperator()) {
 		  return operator.getReturnStmtOperator().performAnalysis(inset, this);
 	  }
 	  return null;
@@ -100,7 +100,7 @@ public class JReturnStmt extends AbstractOpStmt implements ReturnStmt {
   
   @Override
   public BiFuncFlowSet<?,?,?> performAnalysis(BiFuncFlowSet<?,?,?> flowset,Operator operator) {
-	  if(null!=operator && null!=operator.getExitMonitorStmtOperator()) {
+	  if(null!=operator && null!=operator.getReturnStmtOperator()) {
 		  return operator.getReturnStmtOperator().performAnalysis(flowset, this);
 	  }
 	  return null;
