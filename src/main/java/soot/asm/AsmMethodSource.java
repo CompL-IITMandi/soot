@@ -549,9 +549,12 @@ public class AsmMethodSource implements MethodSource {
         } 
       }
     
+    /** Instead of tag set the bytecode offset to the unit directly.*/
     if(null != insn && insn.getBytecodeOffset() != -1) {
     	u.setBytecodeOffset(insn.getBytecodeOffset());
     }
+    
+    
     
     Unit o = units.put(insn, u);
     if (o != null) {
