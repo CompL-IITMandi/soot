@@ -93,4 +93,10 @@ public interface Unit extends Switchable, Host, Serializable, Context {
   
   /** This is an overrideable method to be used by all stmt of Jimple currently to perform the respective analysis. */
   public BiFuncFlowSet<?, ?, ?> performAnalysis(BiFuncFlowSet<?, ?, ?> inset,Operator operator);
+  
+  /** API to retrieve the bytecode offset of the instruction stored from the classfile. */
+  public int getBytecodeOffset();
+  
+  /** API to store the bytecode offset of the instruction from the classfile into the unit. */
+  public void setBytecodeOffset(int bco);
 }

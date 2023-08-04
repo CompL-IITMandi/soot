@@ -169,5 +169,17 @@ class UnitContainer implements Unit {
 	  // TO-DO : Implementations for other IR's also.
 	  throw new UnsupportedOperationException();
   }
+
+	@Override
+	public int getBytecodeOffset() {
+		 // TO-DO : Implementations for other IR's also.
+		  throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public void setBytecodeOffset(int bco) {
+		 // TO-DO : Implementations for other IR's also.
+		  throw new UnsupportedOperationException();
+	}
   
 }

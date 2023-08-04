@@ -291,6 +291,7 @@ import soot.jimple.TableSwitchStmt;
 import soot.jimple.ThrowStmt;
 import soot.jimple.UnopExpr;
 import soot.options.Options;
+import soot.tagkit.BytecodeOffsetTag;
 import soot.tagkit.LineNumberTag;
 import soot.tagkit.Tag;
 import soot.util.Chain;
@@ -538,7 +539,20 @@ public class AsmMethodSource implements MethodSource {
         throw new RuntimeException("Line tag mismatch");
       }
     }
-
+    
+    /** Fix for correctly storing the bytecode offset of the unit from the bytecode instruction. */
+    if (Options.v().keep_offset() && null !=insn) {
+        Tag bcoTag = u.getTag(BytecodeOffsetTag.NAME);
+        if (bcoTag == null && insn.getBytecodeOffset() != -1) {
+        	bcoTag = new BytecodeOffsetTag(insn.getBytecodeOffset());
+        	u.addTag(bcoTag);
+        } 
+      }
+    
+    if(null != insn && insn.getBytecodeOffset() != -1) {
+    	u.setBytecodeOffset(insn.getBytecodeOffset());
+    }
+    
     Unit o = units.put(insn, u);
     if (o != null) {
       throw new AssertionError(insn.getOpcode() + " already has a unit, " + o);

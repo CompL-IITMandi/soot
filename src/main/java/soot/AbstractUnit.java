@@ -39,7 +39,11 @@ public abstract class AbstractUnit extends AbstractHost implements Unit {
    * List of UnitBoxes pointing to this Unit.
    */
   protected List<UnitBox> boxesPointingToThis = null;
-
+  
+  /** Field to map the BCI of the bytecode offset of the instruction corresponding this unit.
+   *  Any value other than -1 is valid. */
+  protected int bci = -1;
+  
   /**
    * Returns a deep clone of this object.
    */
@@ -145,4 +149,23 @@ public abstract class AbstractUnit extends AbstractHost implements Unit {
       }
     }
   }
+
+  /**
+   *  @return the bytecode offset of the bytecode instruction corresponding to the unit.
+   *  Any value other than -1 is valid. 
+   *  */
+	@Override
+	public int getBytecodeOffset() {
+		return this.bci;
+	}
+	
+	/**
+	 *  Set the bytecode offset of the bytecode instruction corresponding to the unit.
+	 *  Any value other than -1 is valid. 
+	 *  */
+	@Override
+	public void setBytecodeOffset(int bci) {
+		this.bci = bci;
+	}
+  
 }
