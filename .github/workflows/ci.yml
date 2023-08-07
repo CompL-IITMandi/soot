@@ -20,6 +20,7 @@ jobs:
       - name: Stylecheck
         if: always()
         run: |
+          bash ASM/build-project.sh
           mvn -B clean checkstyle:check -Dcheckstyle.failOnViolation=true
       - name: Licensecheck
         if: always()
