@@ -79,8 +79,9 @@ public class PropagateLineNumberTagTest extends AbstractTestingFramework {
     assertEquals(2, useBoxes.size());
     ValueBox valueBox = useBoxes.get(0);
     assertTrue(valueBox instanceof ImmediateBox);
-    assertEquals(1, valueBox.getTags().size());
-    assertTrue(valueBox.getTags().get(0) instanceof LineNumberTag);
+    /** Now we have bytecode offset tag also. */
+    assertEquals(2, valueBox.getTags().size());
+    assertTrue(valueBox.getTags().get(1) instanceof LineNumberTag);
     assertEquals(33, valueBox.getJavaSourceStartLineNumber());
   }
 
@@ -110,8 +111,9 @@ public class PropagateLineNumberTagTest extends AbstractTestingFramework {
     assertEquals(2, useBoxes.size());
     ValueBox valueBox = useBoxes.get(0);
     assertTrue(valueBox instanceof ImmediateBox);
-    assertEquals(1, valueBox.getTags().size());
-    assertTrue(valueBox.getTags().get(0) instanceof LineNumberTag);
+    /** Now we have bytecode offset tag also. */
+    assertEquals(2, valueBox.getTags().size());
+    assertTrue(valueBox.getTags().get(1) instanceof LineNumberTag);
     assertEquals(39, valueBox.getJavaSourceStartLineNumber());
 
     // second call to foo
@@ -130,8 +132,8 @@ public class PropagateLineNumberTagTest extends AbstractTestingFramework {
     assertEquals(2, useBoxes.size());
     valueBox = useBoxes.get(0);
     assertTrue(valueBox instanceof ImmediateBox);
-    assertEquals(1, valueBox.getTags().size());
-    assertTrue(valueBox.getTags().get(0) instanceof LineNumberTag);
+    assertEquals(2, valueBox.getTags().size());
+    assertTrue(valueBox.getTags().get(1) instanceof LineNumberTag);
     assertEquals(39, valueBox.getJavaSourceStartLineNumber());
   }
 }
